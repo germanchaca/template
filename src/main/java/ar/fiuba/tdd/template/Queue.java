@@ -9,7 +9,7 @@ public class Queue<T> implements Queueable<T> {
 
     private LinkedList<T> linkedList;
 
-    public Queue(){
+    public Queue() {
         linkedList = new LinkedList<T>();
     }
 

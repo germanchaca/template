@@ -12,13 +12,13 @@ public class EmptyNode<S> implements Nodeable<S> {
     }
 
     @Override
-    public void setNext(Nodeable<S> node) {
-        node.setNext(this);//siempre el ultimo elemento de la lista enlazada es un nodo vacío
+    public Nodeable<S> setNext(Nodeable<S> newNode) {
+        return newNode.setNext(this);//siempre el ultimo elemento de la lista enlazada es un nodo vacío
     }
 
     @Override
-    public void setAtEnd(Nodeable<S> node) {
-        setNext(node);
+    public Nodeable<S> setAtEnd(Nodeable<S> newNode, Nodeable<S> previus) {
+        return previus.setNext( this.setNext(newNode) );
     }
 
     @Override

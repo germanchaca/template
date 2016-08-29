@@ -5,19 +5,19 @@ import ar.fiuba.tdd.template.exceptions.EmptyException;
 /**
  * Created by german on 8/29/2016.
  */
-public class LinkedList<T>{
+public class LinkedList<T> {
     Nodeable<T> headNode;
 
-    public LinkedList(){
+    public LinkedList() {
         headNode = new EmptyNode();
     }
 
-    public int size(){
+    public int size() {
         return headNode.getTotalLinkedNodes();
     }
 
     public void addAtEnd(T item) {
-        headNode.setAtEnd(new Node<T>(item));
+        headNode = headNode.setAtEnd(new Node<T>(item),headNode);
     }
 
     public T top() throws EmptyException {
@@ -29,7 +29,7 @@ public class LinkedList<T>{
         headNode = headNode.next();
     }
 
-    boolean isEmpty(){
+    boolean isEmpty() {
         return headNode.isEmpty();
     }
 }

@@ -17,13 +17,13 @@ public class Node<S> implements Nodeable<S> {
     }
 
     @Override
-    public void setNext(Nodeable<S> next) {
-        this.next = next;
+    public Nodeable<S> setNext(Nodeable<S> next) {
+        return this.next = next;
     }
 
     @Override
-    public void setAtEnd(Nodeable<S> node) {
-        next.setAtEnd(node);
+    public Nodeable<S> setAtEnd(Nodeable<S> node, Nodeable<S> previus) {
+        return next.setAtEnd(node,this);
     }
 
     @Override

@@ -7,11 +7,11 @@ import ar.fiuba.tdd.template.exceptions.EmptyException;
  */
 public interface Nodeable<S> {
 
-    Nodeable next() throws EmptyException;
+    Nodeable<S> next() throws EmptyException;
 
-    void setNext(Nodeable<S> next);
+    Nodeable<S> setNext(Nodeable<S> next);
 
-    void setAtEnd(Nodeable<S> node);
+    Nodeable<S> setAtEnd(Nodeable<S> node, Nodeable<S> previus);
 
     S data() throws EmptyException;
 
