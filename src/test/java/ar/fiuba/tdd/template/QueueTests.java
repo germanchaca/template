@@ -14,13 +14,7 @@ public class QueueTests {
     @Test
     public void queueIsNotEmptyAfterAddingSomeInteger() {
         Queue<Integer> queue = new Queue<>();
-        Integer int1 = new Integer(10);
-        try {
-            queue.add(int1);
-        } catch (EmptyException e) {
-            e.printStackTrace();
-        }
-
+        queue.add(10);
         assertFalse(queue.isEmpty());
     }
 
@@ -30,39 +24,80 @@ public class QueueTests {
         assertTrue(queue.isEmpty());
     }
 
-    @Test(expected = EmptyException.class)
-    public void removeEmptyThrowsEmptyException() {
+    @Test
+    public void removeEmptyThrowsEmptyException(){
         Queue<Integer> queue = new Queue<>();
         try {
             queue.remove();
-        } catch (EmptyException e) {
             fail();
+        }catch (EmptyException e) {
         }
     }
+    @Test
+    public void removeOneElement() {
+        Queue<Integer> queue = new Queue<>();
+        queue.add(10);
+        try {
+            queue.remove();
+        } catch (EmptyException e) {
+        }
+        assertTrue(queue.isEmpty());
+    }
 
-    @Test(expected = EmptyException.class)
+    @Test
+    public void AddTwoRemoveOneElement() {
+        Queue<Integer> queue = new Queue<>();
+        queue.add(10);
+        queue.add(12);
+        try {
+            queue.remove();
+        } catch (EmptyException e) {
+        }
+        assertFalse(queue.isEmpty());
+    }
+
+    @Test
     public void topThrowsEmptyException() {
         Queue<Integer> queue = new Queue<>();
         try {
             queue.top();
-        } catch (EmptyException e) {
             fail();
+        } catch (EmptyException e) {
+
         }
+
     }
 
     @Test
-    public void queueStoresCorrectly() throws EmptyException {
+    public void queueStoresCorrectly() {
         Queue<Integer> queue = new Queue<>();
-        Integer int1 = new Integer(10);
-        queue.add(int1);
+        queue.add(10);
+        queue.add(11);
 
-        Integer topNumber = null;
+        int topNumber = 0;
         try {
             topNumber = queue.top();
         } catch (EmptyException e) {
             e.printStackTrace();
         }
 
-        assertTrue(topNumber.intValue() == int1.intValue());
+        assertTrue(topNumber == 11);
+    }
+
+    @Test
+    public void queueStoresCorrectlyTwoNumbers() {
+        Queue<Integer> queue = new Queue<>();
+        queue.add(10);
+        queue.add(11);
+
+        int topNumber = 0;
+        try {
+            queue.remove();
+            topNumber = queue.top();
+        } catch (EmptyException e) {
+            e.printStackTrace();
+        }
+
+        assertTrue(topNumber == 11);
     }
 }
