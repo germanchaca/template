@@ -15,9 +15,13 @@ public class QueueTests {
     public void queueIsNotEmptyAfterAddingSomeInteger() {
         Queue<Integer> queue = new Queue<>();
         Integer int1 = new Integer(10);
-        queue.add(int1);
+        try {
+            queue.add(int1);
+        } catch (EmptyException e) {
+            e.printStackTrace();
+        }
 
-        assertFalse(!queue.isEmpty());
+        assertFalse(queue.isEmpty());
     }
 
     @Test
@@ -47,7 +51,7 @@ public class QueueTests {
     }
 
     @Test
-    public void queueStoresCorrectly() {
+    public void queueStoresCorrectly() throws EmptyException {
         Queue<Integer> queue = new Queue<>();
         Integer int1 = new Integer(10);
         queue.add(int1);
