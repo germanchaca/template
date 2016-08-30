@@ -115,4 +115,13 @@ public class QueueTests {
 
         assertTrue(queue.size() == 0);
     }
+    @Test
+    public void queueGetSizeWhenRemovingOne() throws EmptyException {
+        Queue<Integer> queue = new Queue<>();
+        queue.add(10);
+        queue.add(11);
+        queue.remove();
+
+        assertTrue(queue.size() == 1);
+    }
 }
