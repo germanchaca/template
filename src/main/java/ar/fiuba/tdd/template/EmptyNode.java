@@ -8,19 +8,15 @@ class EmptyNode<S> implements Nodeable<S> {
         throw new EmptyException("El nodo está vacío");
     }
 
+
     @Override
-    public Nodeable<S> getLastNotEmptyNode(Nodeable<S> previus) {
-        return previus;
+    public void setAtEnd(Nodeable<S> node, Nodeable<S> previus) {
+        previus.setNext(node);
     }
 
     @Override
-    public void setAtEnd(Nodeable<S> node, Nodeable<S> previus) throws EmptyException {
-        throw new EmptyException("El nodo está vacío");
-    }
+    public void setNext(Nodeable<S> next)  {
 
-    @Override
-    public void setNext(Nodeable<S> next) throws EmptyException {
-        throw new EmptyException("El nodo está vacío");
     }
 
     @Override

@@ -21,7 +21,7 @@ class Queue<T> implements Queueable<T> {
     }
 
     @Override
-    public void add(T item) throws EmptyException {
+    public void add(T item) {
         linkedList.addAtEnd(item);
     }
 

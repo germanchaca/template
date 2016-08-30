@@ -13,7 +13,7 @@ class LinkedList<T> {
         return headNode.getTotalLinkedNodes();
     }
 
-    void addAtEnd(T item) throws EmptyException {
+    void addAtEnd(T item) {
         headNode.setAtEnd(new Node<>(item),headNode);
     }
 

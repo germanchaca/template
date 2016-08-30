@@ -11,18 +11,14 @@ class FirstNode<S> implements Nodeable<S> {
         return next;
     }
 
+
     @Override
-    public Nodeable<S> getLastNotEmptyNode(Nodeable<S> previus) {
-        return next.getLastNotEmptyNode(previus);
+    public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) {
+        next.setAtEnd(newNode,previusNode);
     }
 
     @Override
-    public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) throws EmptyException {
-        getLastNotEmptyNode(previusNode).setNext(newNode);
-    }
-
-    @Override
-    public void setNext(Nodeable<S> next) throws EmptyException {
+    public void setNext(Nodeable<S> next) {
         this.next = next;
     }
 

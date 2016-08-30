@@ -15,18 +15,14 @@ class Node<S> implements Nodeable<S> {
         return next;
     }
 
-    public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) throws EmptyException {
-        getLastNotEmptyNode(previusNode).setNext(newNode);
+    public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) {
+        next.setAtEnd(newNode,previusNode);
     }
 
     public void setNext(Nodeable<S> next) {
         this.next = next;
     }
 
-    @Override
-    public Nodeable<S> getLastNotEmptyNode(Nodeable<S> previus) {
-        return next.getLastNotEmptyNode(previus);
-    }
 
     @Override
     public S data() {
