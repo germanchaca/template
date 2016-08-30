@@ -81,7 +81,7 @@ public class QueueTests {
             e.printStackTrace();
         }
 
-        assertTrue(topNumber == 11);
+        assertTrue(topNumber == 10);
     }
 
     @Test
