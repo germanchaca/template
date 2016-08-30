@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.template;
 
-import ar.fiuba.tdd.template.exceptions.EmptyException;
-
 class Node<S> implements Nodeable<S> {
     private Nodeable<S> next = new EmptyNode<>();
     private S data;

@@ -2,10 +2,7 @@ package ar.fiuba.tdd.template;
 
 import ar.fiuba.tdd.template.exceptions.EmptyException;
 
-/**
- * Created by german on 8/29/2016.
- */
-public interface Queueable<T> {
+interface Queueable<T> {
     boolean isEmpty();
 
     int size();
