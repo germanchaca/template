@@ -16,7 +16,7 @@ class Node<S> implements Nodeable<S> {
     }
 
     public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) {
-        next.setAtEnd(newNode,previusNode);
+        next.setAtEnd(newNode,this);
     }
 
     public void setNext(Nodeable<S> next) {

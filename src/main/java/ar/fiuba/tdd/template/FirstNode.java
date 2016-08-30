@@ -14,7 +14,7 @@ class FirstNode<S> implements Nodeable<S> {
 
     @Override
     public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) {
-        next.setAtEnd(newNode,previusNode);
+        next.setAtEnd(newNode,this);
     }
 
     @Override
