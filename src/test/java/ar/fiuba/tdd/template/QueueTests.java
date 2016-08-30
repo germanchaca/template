@@ -7,9 +7,6 @@ import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-/**
- * Created by german on 8/29/2016.
- */
 public class QueueTests {
     @Test
     public void queueIsNotEmptyAfterAddingSomeInteger() {
@@ -31,6 +28,7 @@ public class QueueTests {
             queue.remove();
             fail();
         }catch (EmptyException e) {
+            e.printStackTrace();
         }
     }
     @Test
@@ -40,6 +38,7 @@ public class QueueTests {
         try {
             queue.remove();
         } catch (EmptyException e) {
+            e.printStackTrace();
         }
         assertTrue(queue.isEmpty());
     }
@@ -52,6 +51,7 @@ public class QueueTests {
         try {
             queue.remove();
         } catch (EmptyException e) {
+            e.printStackTrace();
         }
         assertFalse(queue.isEmpty());
     }
@@ -63,7 +63,7 @@ public class QueueTests {
             queue.top();
             fail();
         } catch (EmptyException e) {
-
+            e.printStackTrace();
         }
 
     }
@@ -99,5 +99,20 @@ public class QueueTests {
         }
 
         assertTrue(topNumber == 11);
+    }
+
+    @Test
+    public void queueGetSize() {
+        Queue<Integer> queue = new Queue<>();
+        queue.add(10);
+        queue.add(11);
+
+        assertTrue(queue.size() == 2);
+    }
+    @Test
+    public void queueGetSizeWhenEmpty() {
+        Queue<Integer> queue = new Queue<>();
+
+        assertTrue(queue.size() == 0);
     }
 }
