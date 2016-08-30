@@ -10,7 +10,7 @@ public interface Queueable<T> {
 
     int size();
 
-    void add(T item); //agregar un item
+    void add(T item) throws EmptyException; //agregar un item
 
     T top() throws EmptyException;//retornar el primer item, lanzar excepsión si esta vacio
 

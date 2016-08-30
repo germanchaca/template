@@ -1,29 +1,31 @@
 package ar.fiuba.tdd.template;
 
-/**
- * Created by german on 8/29/2016.
- */
-public class Node<S> implements Nodeable<S> {
-    private Nodeable next;
+import ar.fiuba.tdd.template.exceptions.EmptyException;
+
+class Node<S> implements Nodeable<S> {
+    private Nodeable<S> next = new EmptyNode<>();
     private S data;
 
-    public Node(S data) {
+    Node(S data) {
         this.data = data;
     }
 
     @Override
-    public Nodeable next() {
+    public Nodeable<S> next() {
         return next;
     }
 
-    @Override
-    public Nodeable<S> setNext(Nodeable<S> next) {
-        return this.next = next;
+    public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) throws EmptyException {
+        getLastNotEmptyNode(previusNode).setNext(newNode);
+    }
+
+    public void setNext(Nodeable<S> next) {
+        this.next = next;
     }
 
     @Override
-    public Nodeable<S> setAtEnd(Nodeable<S> node, Nodeable<S> previus) {
-        return next.setAtEnd(node,this);
+    public Nodeable<S> getLastNotEmptyNode(Nodeable<S> previus) {
+        return next.getLastNotEmptyNode(previus);
     }
 
     @Override

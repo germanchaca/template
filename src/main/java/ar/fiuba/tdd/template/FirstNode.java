@@ -2,40 +2,42 @@ package ar.fiuba.tdd.template;
 
 import ar.fiuba.tdd.template.exceptions.EmptyException;
 
-class EmptyNode<S> implements Nodeable<S> {
+class FirstNode<S> implements Nodeable<S> {
 
+    private Nodeable<S> next = new EmptyNode<>();
+
+    @Override
     public Nodeable<S> next() throws EmptyException {
-        throw new EmptyException("El nodo está vacío");
+        return next;
     }
 
     @Override
     public Nodeable<S> getLastNotEmptyNode(Nodeable<S> previus) {
-        return previus;
+        return next.getLastNotEmptyNode(previus);
     }
 
     @Override
-    public void setAtEnd(Nodeable<S> node, Nodeable<S> previus) throws EmptyException {
-        throw new EmptyException("El nodo está vacío");
+    public void setAtEnd(Nodeable<S> newNode, Nodeable<S> previusNode) throws EmptyException {
+        getLastNotEmptyNode(previusNode).setNext(newNode);
     }
 
     @Override
     public void setNext(Nodeable<S> next) throws EmptyException {
-        throw new EmptyException("El nodo está vacío");
+        this.next = next;
     }
 
     @Override
     public S data() throws EmptyException {
-        throw new EmptyException("El nodo está vacío");
+        return next.data();
     }
 
     @Override
     public boolean isEmpty() {
-        return true;
+        return next.isEmpty();
     }
 
     @Override
     public int getTotalLinkedNodes() {
-        return 0;
+        return next.getTotalLinkedNodes();
     }
-
 }

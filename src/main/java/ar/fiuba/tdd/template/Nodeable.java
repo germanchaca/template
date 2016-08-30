@@ -2,16 +2,15 @@ package ar.fiuba.tdd.template;
 
 import ar.fiuba.tdd.template.exceptions.EmptyException;
 
-/**
- * Created by german on 8/29/2016.
- */
-public interface Nodeable<S> {
+interface Nodeable<S> {
 
     Nodeable<S> next() throws EmptyException;
 
-    Nodeable<S> setNext(Nodeable<S> next);
+    Nodeable<S> getLastNotEmptyNode(Nodeable<S> previus);
 
-    Nodeable<S> setAtEnd(Nodeable<S> node, Nodeable<S> previus);
+    void setAtEnd(Nodeable<S> node, Nodeable<S> previus) throws EmptyException;
+
+    void setNext(Nodeable<S> next) throws EmptyException;
 
     S data() throws EmptyException;
 

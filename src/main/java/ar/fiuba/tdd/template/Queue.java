@@ -2,15 +2,12 @@ package ar.fiuba.tdd.template;
 
 import ar.fiuba.tdd.template.exceptions.EmptyException;
 
-/**
- * Created by german on 8/29/2016.
- */
-public class Queue<T> implements Queueable<T> {
+class Queue<T> implements Queueable<T> {
 
     private LinkedList<T> linkedList;
 
-    public Queue() {
-        linkedList = new LinkedList<T>();
+    Queue() {
+        linkedList = new LinkedList<>();
     }
 
     @Override
@@ -24,7 +21,7 @@ public class Queue<T> implements Queueable<T> {
     }
 
     @Override
-    public void add(T item) {
+    public void add(T item) throws EmptyException {
         linkedList.addAtEnd(item);
     }
 

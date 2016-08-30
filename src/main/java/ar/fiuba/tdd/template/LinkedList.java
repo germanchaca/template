@@ -2,31 +2,28 @@ package ar.fiuba.tdd.template;
 
 import ar.fiuba.tdd.template.exceptions.EmptyException;
 
-/**
- * Created by german on 8/29/2016.
- */
-public class LinkedList<T> {
-    Nodeable<T> headNode;
+class LinkedList<T> {
+    private Nodeable<T> headNode;
 
-    public LinkedList() {
-        headNode = new EmptyNode();
+    LinkedList() {
+        headNode = new FirstNode<>();
     }
 
-    public int size() {
+    int size() {
         return headNode.getTotalLinkedNodes();
     }
 
-    public void addAtEnd(T item) {
-        headNode = headNode.setAtEnd(new Node<T>(item),headNode);
+    void addAtEnd(T item) throws EmptyException {
+        headNode.setAtEnd(new Node<>(item),headNode);
     }
 
-    public T top() throws EmptyException {
+    T top() throws EmptyException {
         return headNode.data();
     }
 
     //elimina el primer elemento de la lista
-    public void remove() throws EmptyException {
-        headNode = headNode.next();
+    void remove() throws EmptyException {
+        headNode.setNext(headNode.next().next());
     }
 
     boolean isEmpty() {
